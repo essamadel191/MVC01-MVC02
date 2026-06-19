@@ -20,5 +20,16 @@ namespace MVC01_MVC02.Controllers
 
             return View(plans);
         }
+
+        // GET :: BaseUrl /Plan/Details/{id}
+        public async Task<IActionResult> Details(int id) 
+        {
+            var plan = await _context.Plans.FindAsync(id);
+            if(plan == null) 
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(plan);
+        }
     }
 }
