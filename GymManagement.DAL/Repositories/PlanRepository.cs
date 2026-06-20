@@ -19,6 +19,15 @@ namespace GymManagement.DAL.Repositories
         {
             IQueryable<Plan> query = tracking ? _context.Plans : _context.Plans.AsNoTracking();
             return await query.ToListAsync(tk);
+
+            //if (tracking)
+            //{
+            //    return await _context.Plans.ToListAsync(tk);
+            //}
+            //else
+            //{
+            //    return await _context.Plans.AsNoTracking().ToListAsync(tk);
+            //}
         }
         public async Task<Plan> GetByIdAsync(int id, CancellationToken tk = default)
         {

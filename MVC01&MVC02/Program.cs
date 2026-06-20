@@ -11,10 +11,20 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IPlanRepository, PlanRepository>();
 builder.Services.AddDbContext<GymDbContext>(option =>
 {
-    option.UseSqlServer(builder.Configuration.GetConnectionString("DefualtConnection"));
+    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var ctx = scope.ServiceProvider.GetRequiredService<GymDbContext>();
+    Console.WriteLine("=== Connection string in use: " + ctx.Database.GetConnectionString());
+    var count = ctx.Plans.Count();
+    Console.WriteLine("=== Plan row count seen by EF: " + count);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
