@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace MVC01_MVC02.Migrations
+namespace GymManagement.DAL.Migrations
 {
     /// <inheritdoc />
     public partial class MakeUpdatedAtNullable : Migration

@@ -1,14 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MVC01_MVC02.FluentConfigurations;
-using MVC01_MVC02.Models;
+using GymManagement.DAL.FluentConfigurations;
+using GymManagement.DAL.Models;
 
-namespace MVC01_MVC02.Context
+namespace GymManagement.DAL.Context
 {
     public class GymDbContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public GymDbContext(DbContextOptions<GymDbContext> options) : base(options)
         {
-            optionsBuilder.UseSqlServer("Server=.;Database=GymG01Db;Trusted_Connection=true;TrustServerCertificate=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

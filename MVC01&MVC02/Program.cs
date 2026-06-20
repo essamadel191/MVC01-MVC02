@@ -1,7 +1,18 @@
+using GymManagement.DAL.Context;
+using GymManagement.DAL.Repositories;
+using GymManagement.DAL.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IPlanRepository, PlanRepository>();
+builder.Services.AddDbContext<GymDbContext>(option =>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("DefualtConnection"));
+});
 
 var app = builder.Build();
 

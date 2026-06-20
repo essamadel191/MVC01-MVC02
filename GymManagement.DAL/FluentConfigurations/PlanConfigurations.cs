@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using MVC01_MVC02.Models;
+using GymManagement.DAL.Models;
 
-namespace MVC01_MVC02.FluentConfigurations
+namespace GymManagement.DAL.FluentConfigurations
 {
     public class PlanConfigurations : IEntityTypeConfiguration<Plan>
     {

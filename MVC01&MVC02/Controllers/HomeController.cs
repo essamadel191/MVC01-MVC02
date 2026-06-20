@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using MVC01_MVC02.Models;
+using GymManagement.DAL.Models;
 using System.Diagnostics;
 
 namespace MVC01_MVC02.Controllers
